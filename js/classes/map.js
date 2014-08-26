@@ -138,11 +138,13 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
         addHalfGlass( spiritsAmount, 'spiritsGlassIcon', '#spiritsGlassLevel', spiritsGlasses - spiritsFullGlasses );
       }
 
-      countryDetailsText += 'Spirits: ' + Math.ceil( spiritsQuantity * 1000 ) + ' ml';
+      countryDetailsText += 'Spirits: ' + Math.ceil( spiritsQuantity * 1000 ) + ' ml<br/>every week';
 
       // Country Details
 
       $( '#countryInfoDetails' ).html( countryDetailsText );
+
+      $( '.topBar' ).addClass( 'visible' );
 
     }
 
@@ -221,6 +223,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
     }
 
     function setActiveButton( btn ) {
+      $( '.topBar' ).removeClass( 'visible' );
       if ( btn.hasClass( 'selected' ) ) {
         btn.removeClass( 'selected' );
         resetMap();

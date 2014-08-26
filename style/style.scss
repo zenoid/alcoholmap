@@ -237,6 +237,64 @@ button {
 
 
 
+/*                      LOADING SPINNER
+------------------------------------------------------------------------- */
+
+.spinner {
+  $spinner_size: 4em;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: $spinner_size;
+  height: $spinner_size;
+  margin-left: -$spinner_size/2;
+  margin-top: -$spinner_size/2;
+  border-bottom: 1px solid #999;
+  vertical-align: middle;
+  overflow: hidden;
+  -webkit-animation: 0.5s spinner linear infinite;
+     -moz-animation: 0.5s spinner linear infinite;
+          animation: 0.5s spinner linear infinite;
+
+  &,
+  &:after {
+    border-radius: 100%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #999;
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinner {
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
 /*                      INFO BAR
 ------------------------------------------------------------------------- */
 
@@ -256,7 +314,7 @@ button {
 
   h2 {
     text-transform: uppercase;
-    margin: 0.2em 0;
+    margin: 0.1em 0;
   }
 
 }
@@ -268,16 +326,15 @@ button {
   p {
     color: $color_light;
     text-align: left;
-    line-height: 1.5;
-    font-size: 0.8em;
+    line-height: 1.4;
+    font-size: 0.75em;
     font-family: $font-serif;
   }
 }
 
 .glassesIconsContainer {
-  position: absolute;
-  right: 0;
-  text-align: right;
+  margin: auto;
+  padding-left: 7em;
   display: table;
   height: 100%;
 }

@@ -4,7 +4,31 @@
 /*                      TABLET
 ------------------------------------------------------------------------- */
 
-@media only screen and (max-height: 700px) {
+@media only screen and (max-width: 1000px) {
+
+.glassesIconsContainer {
+
+  $glasses-zoom-small: 0.8;
+  zoom: $glasses-zoom-small;
+  -moz-transform: scale($glasses-zoom-small);
+  -o-transform: scale($glasses-zoom-small);
+  -webkit-transform: scale($glasses-zoom-small);
+  transform: scale($glasses-zoom-small);
 }
 
+}
+
+@media only screen and (max-width: 768px) {
+
+.glassesIconsContainer {
+
+  $glasses-zoom-smaller: 0.7;
+  zoom: $glasses-zoom-smaller;
+  -moz-transform: scale($glasses-zoom-smaller);
+  -o-transform: scale($glasses-zoom-smaller);
+  -webkit-transform: scale($glasses-zoom-smaller);
+  transform: scale($glasses-zoom-smaller);
+}
+
+}
 

@@ -11,10 +11,10 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
       init: function( d ) {
         app.map.setup( d );
         $( '#map' ).on( 'mapReady', function() {
+          $( '.spinner' ).remove();
           $( '.intro-screen' ).addClass( 'visible' );
           $( '.intro-screen button' ).on( 'click', function() {
             $( '.intro-screen' ).removeClass( 'visible' );
-            $( '.topBar' ).addClass( 'visible' );
             $( '.navBar' ).addClass( 'visible' );
             setTimeout( function() {
               $( '.intro-screen' ).remove();
