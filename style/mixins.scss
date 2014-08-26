@@ -1,0 +1,226 @@
+
+
+/*                      LAYOUT
+------------------------------------------------------------------------- */
+
+@mixin clearfix {
+
+  // For modern browsers
+  &:before, &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  // For IE 6/7 (trigger hasLayout)
+  & {
+    *zoom: 1;
+  }
+
+}
+
+
+/*                      FONTS AND TEXT
+------------------------------------------------------------------------- */
+
+@mixin fontFace($font-family, $font-url, $font-name) {
+  @font-face {
+    font-family:$font-family;
+    src: url($font-url + '/' + $font-name + '.eot');
+    src: url($font-url + '/' + $font-name + '.eot?#iefix') format('eot'),
+       url($font-url + '/' + $font-name + '.woff') format('woff'),
+       url($font-url + '/' + $font-name + '.ttf') format('truetype'),
+       url($font-url + '/' + $font-name + '.svg#webfontBF9xh1gY') format('svg');
+    font: {
+      style: normal;
+      weight: normal;
+    }
+  }
+}
+
+@mixin disableSelect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+@mixin wordwrap {
+ -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+}
+
+@mixin selection($background, $color) {
+  ::-moz-selection { background:$background; color:$color; text-shadow:none; }
+       ::selection { background:$background; color:$color; text-shadow:none; }
+}
+
+
+/*                      FORMS
+------------------------------------------------------------------------- */
+
+@mixin placeHolder($color) {
+  &::-webkit-input-placeholder { color:$color; }
+  &:-moz-placeholder { color:$color; }
+}
+
+@mixin normaliseSelect() {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+  -webkit-background-clip: padding;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 1px;
+  *height: auto;
+}
+
+
+/*                      BORDERS
+------------------------------------------------------------------------- */
+
+@mixin borderRadius($radius: 4px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin borderTopRadius($radius: 4px) {
+  -webkit-border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+      -moz-border-radius-topright: $radius;
+       -moz-border-radius-topleft: $radius;
+          border-top-right-radius: $radius;
+           border-top-left-radius: $radius;
+}
+
+@mixin borderRightRadius($radius: 4px) {
+  -webkit-border-bottom-right-radius: $radius;
+     -webkit-border-top-right-radius: $radius;
+      -moz-border-radius-bottomright: $radius;
+         -moz-border-radius-topright: $radius;
+          border-bottom-right-radius: $radius;
+             border-top-right-radius: $radius;
+}
+
+@mixin borderBottomRadius($radius: 4px) {
+  -webkit-border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+      -moz-border-radius-bottomright: $radius;
+       -moz-border-radius-bottomleft: $radius;
+          border-bottom-right-radius: $radius;
+           border-bottom-left-radius: $radius;
+}
+
+@mixin borderLeftRadius($radius: 4px) {
+  -webkit-border-bottom-left-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+      -moz-border-radius-bottomleft: $radius;
+         -moz-border-radius-topleft: $radius;
+          border-bottom-left-radius: $radius;
+             border-top-left-radius: $radius;
+}
+
+
+/*                      SHADOWS AND GLOWS
+------------------------------------------------------------------------- */
+
+@mixin boxShadow($x: 5px, $y: 5px, $blur: 10px, $spread: 10px, $color: #000) {
+  -webkit-box-shadow: $x $y $blur $spread $color;
+     -moz-box-shadow: $x $y $blur $spread $color;
+          box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin insetBoxShadow($x: 5px, $y: 5px, $blur: 10px, $spread: 10px, $color: #000) {
+  -webkit-box-shadow: inset $x $y $blur $spread $color;
+     -moz-box-shadow: inset $x $y $blur $spread $color;
+          box-shadow: inset $x $y $blur $spread $color;
+}
+
+@mixin innerGlow($amount: 10px, $alpha: 0.5) {
+  -webkit-box-shadow: inset 0 0 $amount rgba(255, 255, 255, $alpha);
+     -moz-box-shadow: inset 0 0 $amount rgba(255, 255, 255, $alpha);
+          box-shadow: inset 0 0 $amount rgba(255, 255, 255, $alpha);
+}
+
+@mixin gradientTint($tint: #F5F5F5, $amount: 10%) {
+  background: $tint;
+  $start: darken($tint, $amount);
+  $stop: lighten($tint, $amount);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, $start), color-stop(1, $stop));
+  background: -moz-linear-gradient(center bottom, $start 0%, $stop 100%);
+}
+
+
+/*                      SHAPES
+------------------------------------------------------------------------- */
+
+@mixin triangle($direction:up, $color:#000, $size:100px) {
+  @if($direction == up) {
+    border-color: transparent transparent $color;
+    border-style: solid;
+    border-width: 0 $size $size;
+    height: 0;
+    width: 0;
+  }
+  @if($direction == down) {
+    border-color: $color transparent transparent transparent;
+    border-style: solid;
+    border-width: $size;
+    height: 0;
+    width: 0;
+  }
+  @if($direction == left) {
+    border-color: transparent $color transparent transparent;
+    border-style: solid;
+    border-width: $size $size $size 0;
+    height: 0;
+    width: 0;
+  }
+  @if($direction == right) {
+    border-color: transparent transparent transparent $color;
+    border-style: solid;
+    border-width: $size 0 $size $size;
+    height: 0;
+    width: 0;
+  }
+}
+
+
+/*                      TRANSITIONS
+------------------------------------------------------------------------- */
+
+$default_ease: cubic-bezier(0.5, 0.0, 0.5, 1.0);
+
+@mixin transition($property, $duration, $ease: $default_ease) {
+  -webkit-transition: $property $duration $ease;
+     -moz-transition: $property $duration $ease;
+       -o-transition: $property $duration $ease;
+          transition: $property $duration $ease;
+}
+
+@mixin transitionTwo($property1, $property2, $duration, $ease: $default_ease) {
+  -webkit-transition: $property1 $duration $ease, $property2 $duration $ease;
+     -moz-transition: $property1 $duration $ease, $property2 $duration $ease;
+       -o-transition: $property1 $duration $ease, $property2 $duration $ease;
+          transition: $property1 $duration $ease, $property2 $duration $ease;
+}
+
+

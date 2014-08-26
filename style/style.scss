@@ -1,0 +1,439 @@
+
+@import 'normalize';
+@import 'mixins';
+@import 'config';
+
+
+
+/*                      LAYOUT
+------------------------------------------------------------------------- */
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.navBar {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: -50px;
+  background-color: #FFF;
+  @include transition(bottom, 0.4s);
+
+  &.visible {
+    bottom: 0;
+  }
+}
+
+
+
+/*                      TYPOGRAPHY
+------------------------------------------------------------------------- */
+
+body {
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: $color_light;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+strong {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0 0 0.7em 0;
+  padding: 0;
+  font-weight: 400;
+  color: $color_light;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8em;
+  padding: 0;
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 400;
+  color: $color_light;
+}
+
+
+
+/*                      FORM ELEMENTS
+------------------------------------------------------------------------- */
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+  margin-right: 0;
+  float: left;
+  font-size: 1.2em;
+  color: #FFF !important;
+  background-color: #999;
+  padding: 0 1em;
+  line-height: 50px;
+  position: relative;
+
+  &.selected:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -10px;
+    left: 50%;
+    margin-left: -20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid #999;
+  }
+
+  &:hover {
+    background-color: #444;
+
+    &.selected:before {
+      border-bottom: 10px solid #444;
+    }
+  }
+}
+
+.color-wine {
+  background-color: $color_wine;
+
+  &.selected:before {
+    border-bottom: 10px solid $color_wine;
+  }
+}
+.color-beer {
+  background-color: $color_beer;
+
+  &.selected:before {
+    border-bottom: 10px solid $color_beer;
+  }
+}
+.color-spirits {
+  background-color: $color_spirits;
+
+  &.selected:before {
+    border-bottom: 10px solid $color_spirits;
+  }
+}
+
+
+
+/*                      MAP
+------------------------------------------------------------------------- */
+
+#map {
+
+  svg {
+    stroke: $color_light;
+    stroke-width: 0.2px;
+    fill: #FFF;
+
+    path {
+      @include transition(fill, 0.3s);
+    }
+
+    path,
+    g {
+      &:hover {
+        stroke: #444;
+        stroke-width: 2px;
+      }
+
+    }
+  }
+
+}
+
+
+
+/*                      INTRO
+------------------------------------------------------------------------- */
+
+.intro-screen {
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  @include transition(opacity, 0.4s);
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.intro-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 400px;
+  height: 350px;
+  text-align: center;
+
+  p {
+    color: $color_light;
+    font-size: 1.0em;
+    line-height: 1.3;
+    font-family: $font-serif;
+    padding: 0 1em 1em 1em;
+  }
+
+  button {
+    float: none;
+    background-color: #333;
+    margin-top: 0.5em;
+
+    &:hover {
+      background-color: #FFF;
+      color: #333 !important;
+    }
+  }
+}
+
+
+
+/*                      INFO BAR
+------------------------------------------------------------------------- */
+
+.topBar {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background-color: rgba(0,0,0,0.75);
+  pointer-events: none;
+  @include transition(top, 0.4s);
+
+  &.visible {
+    top: 0;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    margin: 0.2em 0;
+  }
+
+}
+
+.countryData {
+  position: absolute;
+  padding: 0.5em 1em;
+
+  p {
+    color: $color_light;
+    text-align: left;
+    line-height: 1.5;
+    font-size: 0.8em;
+    font-family: $font-serif;
+  }
+}
+
+.glassesIconsContainer {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  display: table;
+  height: 100%;
+}
+
+.glassesIcons {
+  display: table-cell;
+  vertical-align: bottom;
+  padding: 0.5em 1em;
+}
+
+
+
+/*                      GITD WIDGET
+------------------------------------------------------------------------- */
+
+$color_widget_data: #F1C40F;
+$color_fb: #3B5998;
+$color_twitter: #55ACEE;
+
+.gitd-widgets {
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  font-size: 0;
+}
+
+.gitd-widget-item {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  border: none;
+  background-image: url('widgets.png');
+  background-size: 200px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: relative;
+}
+
+.gitd-widget-share {   background-position:    0px   0px;
+  &:hover {            background-color: #2ECC71;
+                       background-position:    0px -40px; }
+}
+.gitd-widget-data {    background-position:  -40px   0px;
+  &:hover {            background-color: $color_widget_data;
+                       background-position:  -40px -40px; }
+}
+.gitd-widget-github {  background-position:  -80px   0px;
+  &:hover {            background-color: #E74C3C;
+                       background-position:  -80px -40px; }
+}
+.gitd-widget-website { background-position: -120px   0px;
+  &:hover {            background-color: #2C3E50;
+                       background-position: -120px -40px; }
+}
+
+.gitd-widget-container {
+  position: absolute;
+  overflow: hidden;
+  @include transition(all, 0.2s);
+  font-size: 14px;
+}
+
+.gitd-widget-panel {
+  width: 100%;
+  height: 100%;
+  text-transform: none;
+  color: #333;
+  padding: 0.4em 0.8em;
+  line-height: 1.3em;
+
+  a {
+    color: #333;
+    text-decoration: underline;
+    display: block;
+
+    &:hover {
+      color: #FFF;
+    }
+  }
+
+  li {
+    margin-top: 0.8em;
+  }
+}
+
+// SHARE
+
+.share-button {
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-image: url('widgets.png');
+  background-size: 200px;
+  background-repeat: no-repeat;
+}
+
+.share-button-fb {
+  background-position: -160px 0px;
+  background-color: $color_fb;
+  &:hover {
+    background-color: lighten($color_fb, 10%);
+  }
+}
+
+.share-button-twitter {
+  background-position: -160px -40px;
+  background-color: $color_twitter;
+  &:hover {
+    background-color: lighten($color_twitter, 10%);
+  }
+}
+
+.gitd-widget-share {
+
+  .gitd-widget-container {
+    width: 40px;
+    top: 0;
+    height: 0;
+  }
+
+  &:hover {
+    .gitd-widget-container {
+      top: -80px;
+      height: 80px;
+    }
+  }
+}
+
+// DATA SOURCES
+
+.gitd-widget-data {
+
+  .gitd-widget-container {
+    width: 225px;
+    left: -95px;
+    bottom: 40px;
+    max-height: 0;
+  }
+
+  .gitd-widget-panel {
+    background-color: $color_widget_data;
+  }
+
+  &:hover {
+    .gitd-widget-container {
+      max-height: 200px;
+    }
+  }
+}
+
+
+
+/*                      MEDIA QUERIES
+------------------------------------------------------------------------- */
+
+@import 'mediaqueries';
+
+
