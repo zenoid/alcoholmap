@@ -6,28 +6,61 @@
 
 @media only screen and (max-width: 1000px) {
 
-.glassesIconsContainer {
+.wineGlassIcon {
+  width: $wineGlassIcon-width * 0.8;
+  height: $wineGlassIcon-height * 0.8;
+}
 
-  $glasses-zoom-small: 0.8;
-  zoom: $glasses-zoom-small;
-  -moz-transform: scale($glasses-zoom-small);
-  -o-transform: scale($glasses-zoom-small);
-  -webkit-transform: scale($glasses-zoom-small);
-  transform: scale($glasses-zoom-small);
+.beerGlassIcon {
+  width: $beerGlassIcon-width * 0.8;
+  height: $beerGlassIcon-height * 0.8;
+}
+
+.spiritsGlassIcon {
+  width: $spiritsGlassIcon-width * 0.8;
+  height: $spiritsGlassIcon-height * 0.8;
 }
 
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
 
-.glassesIconsContainer {
+.wineGlassIcon {
+  width: $wineGlassIcon-width * 0.7;
+  height: $wineGlassIcon-height * 0.7;
+}
 
-  $glasses-zoom-smaller: 0.7;
-  zoom: $glasses-zoom-smaller;
-  -moz-transform: scale($glasses-zoom-smaller);
-  -o-transform: scale($glasses-zoom-smaller);
-  -webkit-transform: scale($glasses-zoom-smaller);
-  transform: scale($glasses-zoom-smaller);
+.beerGlassIcon {
+  width: $beerGlassIcon-width * 0.7;
+  height: $beerGlassIcon-height * 0.7;
+}
+
+.spiritsGlassIcon {
+  width: $spiritsGlassIcon-width * 0.7;
+  height: $spiritsGlassIcon-height * 0.7;
+}
+
+}
+
+@media only screen and (max-width: 750px) {
+
+.wineGlassIcon {
+  width: $wineGlassIcon-width * 0.5;
+  height: $wineGlassIcon-height * 0.5;
+}
+
+.beerGlassIcon {
+  width: $beerGlassIcon-width * 0.5;
+  height: $beerGlassIcon-height * 0.5;
+}
+
+.spiritsGlassIcon {
+  width: $spiritsGlassIcon-width * 0.5;
+  height: $spiritsGlassIcon-height * 0.5;
+}
+
+.navBar {
+  text-align: left;
 }
 
 }

@@ -24,6 +24,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
     function setupSize() {
       width = window.innerWidth;
       height = window.innerHeight;
+      $( '#map' ).width( width ).height( height );
       map.attr('width', width)
         .attr('height', height);
     }
@@ -33,7 +34,9 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
 
     function getIcon( iconId ) {
       var node = d3.select( '#' + iconId ).node(),
-        icon = d3.select( node.parentNode.insertBefore( node.cloneNode( true ), node.nextSibling ) ).attr( 'id', null );
+        icon = d3.select( node.parentNode.insertBefore( node.cloneNode( true ), node.nextSibling ) )
+          .attr( 'id', null )
+          .attr( 'class', iconId );
       return icon[ 0 ][ 0 ];
     }
 
