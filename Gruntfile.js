@@ -13,6 +13,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'js/libs/jquery*.js',
+          'js/libs/fastclick.js',
           'js/libs/d3.js',
           'js/classes/*.js',
           'js/app.js'

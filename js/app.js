@@ -31,12 +31,9 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
 
   // ----------------- Utilities -----------------
 
-  function fixScrolling() {
+  function fixTouchEvents() {
 
-    $( 'input' ).on( 'blur', function() {
-      window.scrollTo( 0, 0 );
-      document.body.scrollTop = 0;
-    });
+    FastClick.attach( document.body );
 
     $( document ).on( 'touchmove', function( e ) {
       e.preventDefault();
@@ -49,7 +46,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
 
   $( document ).ready( function() {
 
-    fixScrolling();
+    fixTouchEvents();
 
     d3.csv( 'data/alcohol-per-country.csv', function( data ) {
 

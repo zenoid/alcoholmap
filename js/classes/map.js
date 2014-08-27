@@ -15,7 +15,8 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
       data.forEach(function( d ){
         map.selectAll( '[cc=' + d.id + ']' )
           .data( [ d.id ] )
-          .on( 'mouseover', showCountryInfo );
+          .on( 'mouseover', showCountryInfo )
+          .on( 'touchstart', showCountryInfo );
       });
       $( '#map' ).trigger( 'mapReady' );
     }
@@ -72,6 +73,11 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
         spiritsQuantity, spiritsGlasses, spiritsFullGlasses,
 
         i, l;
+
+      // Show selected country
+
+      map.selectAll( '[cc]' ).attr( 'class', null );
+      map.selectAll( '[cc=' + c + ']' ).attr( 'class', 'selected' );
 
       // Get Country Data
 
@@ -138,7 +144,9 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
         addHalfGlass( spiritsAmount, 'spiritsGlassIcon', '#spiritsGlassLevel', spiritsGlasses - spiritsFullGlasses );
       }
 
-      countryDetailsText += 'Spirits: ' + Math.ceil( spiritsQuantity * 1000 ) + ' ml<br/>every week';
+      countryDetailsText += 'Spirits: ' + Math.ceil( spiritsQuantity * 1000 ) + ' ml<br/>';
+
+      countryDetailsText += 'every week per person aged 15+';
 
       // Country Details
 
@@ -223,10 +231,10 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
     }
 
     function setActiveButton( btn ) {
+      resetMap();
       $( '.topBar' ).removeClass( 'visible' );
       if ( btn.hasClass( 'selected' ) ) {
         btn.removeClass( 'selected' );
-        resetMap();
         return false;
       } else {
         $( '.navBar button' ).removeClass( 'selected' );
@@ -236,7 +244,9 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
     }
 
     function resetMap() {
-      map.selectAll( '[cc]' ).style( 'fill', null );
+      map.selectAll( '[cc]' )
+        .attr( 'class', null )
+        .style( 'fill', null );
     }
 
 

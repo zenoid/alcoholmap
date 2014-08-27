@@ -94,6 +94,11 @@ h2 {
   color: $color_light;
 }
 
+button,
+#map {
+  -webkit-tap-highlight-color: transparent;
+}
+
 
 
 /*                      FORM ELEMENTS
@@ -164,6 +169,7 @@ button {
 #map {
 
   svg {
+
     stroke: $color_light;
     stroke-width: 0.2px;
     fill: #FFF;
@@ -172,14 +178,11 @@ button {
       @include transition(fill, 0.3s);
     }
 
-    path,
-    g {
-      &:hover {
-        stroke: #444;
-        stroke-width: 2px;
-      }
-
+    path.selected,
+    g.selected {
+      fill: #444 !important;
     }
+
   }
 
 }
