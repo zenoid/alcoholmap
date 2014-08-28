@@ -111,7 +111,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
         addHalfGlass( wineAmount, 'wineGlassIcon', '#wineGlassLevel', wineGlasses - wineFullGlasses );
       }
 
-      countryDetailsText = 'Wine: ' + Math.ceil( wineQuantity * 1000 ) + ' ml<br/>';
+      countryDetailsText = 'Wine (' + wineVolume*100 + '% vol): ' + Math.ceil( wineQuantity * 1000 ) + ' ml<br/>';
 
       // Beer Amount
 
@@ -129,7 +129,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
         addHalfGlass( beerAmount, 'beerGlassIcon', '#beerGlassLevel', beerGlasses - beerFullGlasses );
       }
 
-      countryDetailsText += 'Beer: ' + Math.ceil( beerQuantity * 1000 ) + ' ml<br/>';
+      countryDetailsText += 'Beer (' + beerVolume*100 + '% vol): ' + Math.ceil( beerQuantity * 1000 ) + ' ml<br/>';
 
       // Spirits Amount
 
@@ -147,7 +147,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
         addHalfGlass( spiritsAmount, 'spiritsGlassIcon', '#spiritsGlassLevel', spiritsGlasses - spiritsFullGlasses );
       }
 
-      countryDetailsText += 'Spirits: ' + Math.ceil( spiritsQuantity * 1000 ) + ' ml<br/>';
+      countryDetailsText += 'Spirits (' + spiritsVolume*100 + '% vol): ' + Math.ceil( spiritsQuantity * 1000 ) + ' ml<br/>';
 
       countryDetailsText += 'every week per person aged 15+';
 
