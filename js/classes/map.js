@@ -164,7 +164,7 @@ window.gitdAlcoholMapApp = window.gitdAlcoholMapApp || {};
     // ----------------- Map Coloring -----------------
 
     var color_zero = '#FFF',
-      color_wine = '#990012',
+      color_wine = '#CC0012',
       color_beer = '#F19800',
       color_spirits = '#00BBCC';
 
