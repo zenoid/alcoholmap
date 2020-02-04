@@ -33,6 +33,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           style: 'compressed',
+          'no-source-map': ''
         },
         src: 'style/style.scss',
         dest: 'build/style/style.css',

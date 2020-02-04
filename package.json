@@ -1,13 +1,13 @@
 {
   "name": "AlcoholMap",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-cssmin": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-sass": "latest",
     "smash": "0",
     "d3": "3"
   }
