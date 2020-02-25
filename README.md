@@ -3,7 +3,7 @@ Wine, Beer or Spirits?
 
 How much - and which - alcohol is drunk in the world during a week?
 
-It's part of the **Ghost in the Data** project: http://ghostinthedata.com/alcoholmap/
+It's part of the **Ghost in the Data** project: https://ghostinthedata.com/alcoholmap/
 
 ### Data Sources
 
